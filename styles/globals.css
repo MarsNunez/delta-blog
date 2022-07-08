@@ -1,16 +1,91 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-a {
-  color: inherit;
-  text-decoration: none;
+html {
+  background-color: #f7f7f7;
 }
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
 }
+
+.margin-zero {
+  margin-top: -2px;
+  margin-bottom: -2px;
+}
+
+.active {
+  --tw-border-opacity: 1;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.border_block {
+  border-bottom: 2px solid red;
+}
+
+.wrapper {
+  /* border: 1px solid red; */
+  max-width: 972px;
+  margin: auto;
+}
+
+blockquote .author_name {
+  color: gray;
+}
+
+.center-box {
+  align-items: center;
+  display: flex;
+}
+
+.class_hover:hover {
+  background-color: #eaeaea;
+  transition: .1s;
+}
+
+.ancho {
+  width: 560px;
+}
+
+.action_button:hover {
+  background: transparent;
+  color: #000;
+  border: 1px solid #000;
+  transition: .2s;
+}
+
+.submit_button:hover {
+  background: white;
+  color: #000;
+  border: 1px solid #000;
+  transition: .2s;
+}
+
+.lore_box_image {
+  width: 300px;
+  height: 300px;
+}
+
+.lore_box_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lore_box_about {
+  width: 550px;
+}
+
+section.about h2,
+section.about h3, 
+section.login h2 {
+  font-family: 'Titillium Web';
+}
+
+
+
