@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
-const Layout = ({children, title = '' }) => {
+const Layout = ({children, title = '', footer=true, navbar=true, session }) => {
   const [current_location, setCurrent_location] = useState('');
 
   useEffect(() => {
@@ -21,13 +21,12 @@ const Layout = ({children, title = '' }) => {
         <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet" />
       </Head>
 
-      <Navbar current_location={current_location}/>
+      { navbar && <Navbar current_location={current_location} session={session}/>}
 
       <div className="wrapper mb-10">
         { children }
       </div>
-
-      <Footer />
+      { footer && <Footer /> }
     </div>
   );
 }

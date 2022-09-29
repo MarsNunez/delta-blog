@@ -1,20 +1,33 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
-const Navbar = ({ current_location }) => {
+const Navbar = ({ current_location, session }) => {
+
+  const router = useRouter();
+
   return (
     <>
-    <section className="border-b flex justify-between items-center py-2 px-6">
-      <div className="element-left">
+    <section className="border-b grid grid-cols-3 justify-between items-center border py-2 px-6">
+      <div className="element-left pl-28">
         <Image src="/img/icon-transparent.png" alt="icon" width="44" height="39"/>
       </div>
-      <div className="element-mid">
+      <div className="element-mid flex justify-center">
         <Image src="/img/logo-transparent.png" alt="logo" width="192" height="27"/>
       </div>
       <div className="element-right">
-        <Link href={'/login'}>
-          <a className='border text-white bg-neutral-900 p-2 px-4 rounded-md action_button '>Login</a>
-        </Link>
+        { session ? (
+          <div className='flex px-3 py-1 rounded-md pl-40'>
+            <img onClick={() => {router.push('/api/auth/signout')}}  className='w-10 rounded-full cursor-pointer' src={session.user.image} alt="profile-picture" />
+            <p className='cursor-default my-auto ml-2'>{session.user.name}</p>
+          </div>
+        ) : (
+          <div className='pl-64'>
+            <Link href={'/login'}>
+              <a className='border text-white bg-neutral-900 p-2 px-4 rounded-md action_button '>Login</a>
+            </Link>
+          </div>
+        )}
       </div>
     </section>
     <section className='border-b'>

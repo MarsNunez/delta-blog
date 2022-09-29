@@ -14,9 +14,9 @@ const Footer = () => {
         <p className="mt-7 mb-3">Copyright © 2022</p>
         <p>By Marcelo Nunez ☘️</p>
 
-        <i onClick={() => router.push('https://github.com/NASebastian')} class="lni lni-github-original mx-2 text-2xl mt-4 cursor-pointer"></i>
-        <i onClick={() => router.push('https://twitter.com/Sebastian__Dev')} class="lni lni-twitter-original mx-2 text-2xl mt-4 cursor-pointer"></i>
-        <i onClick={() => router.push('https://github.com/NASebastian')} class="lni lni-youtube mx-2 text-2xl mt-4 cursor-pointer"></i>
+        <i onClick={() => router.push('https://github.com/NASebastian')} className="lni lni-github-original mx-2 text-2xl mt-4 cursor-pointer"></i>
+        <i onClick={() => router.push('https://twitter.com/Sebastian__Dev')} className="lni lni-twitter-original mx-2 text-2xl mt-4 cursor-pointer"></i>
+        <i onClick={() => router.push('https://github.com/NASebastian')} className="lni lni-youtube mx-2 text-2xl mt-4 cursor-pointer"></i>
       </div>
     </div>
    );

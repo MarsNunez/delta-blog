@@ -4,16 +4,19 @@ import Card from "../components/Card";
 import PostsList from "../components/PostsList";
 import Link from "next/link";
 import { ChevronRightIcon } from "@heroicons/react/outline";
+import { getSession } from "next-auth/react";
 
 
-export default function Home({ quote, authorName }) {
+export default function Home({ quote, authorName, session }) {
+  console.log(session);
+
   return (
-    <Layout title={'Home'}>
+    <Layout title={'Home'} session={session}>
       <div className="text-4xl text-center my-5 quote_container center-box min-h-[150px]">
         <div className="container text-center">
           <p><TypeIt style={{"font-family": 'Titillium Web'}}
             options={{
-              speed: 65, //75
+              speed: 65,
               waitUntilVisible: true,
             }}>&ldquo;{quote.toUpperCase()}&rdquo;</TypeIt>
           </p>
@@ -30,7 +33,8 @@ export default function Home({ quote, authorName }) {
   )
 }
 
-export async function getServerSideProps () {
+export async function getServerSideProps (context) {
+  // QUOTE
   const url = `https://zenquotes.io/?api=quotes&key=f0df37523879208b5198b247db115a0afdff8d26`
   const data = await fetch(url).then(res => res.json());
 
@@ -40,10 +44,14 @@ export async function getServerSideProps () {
 
   const randomQuote = data[getRandomInt(data.length)]
 
+  // SESSION
+  const session = await getSession(context);
+
   return {
     props: {
       quote: randomQuote.q,
-      authorName: randomQuote.a
+      authorName: randomQuote.a,
+      session
     }
   }
 }
