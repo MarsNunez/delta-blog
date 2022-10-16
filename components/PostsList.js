@@ -2,8 +2,8 @@ import Card from "./Card";
 
 const PostsList = () => {
   return ( 
-    <div className="max-w-3xl mx-auto mt-6">
-      <div className="border-b mb-7">
+    <div className="max-w-3xl mx-auto md:mt-6">
+      <div className="border-b flex justify-center md:justify-start mb-7">
         <ul className="flex">
           <li className="py-4 cursor-pointer mx-3 active">New</li>
           <li className="py-4 cursor-pointer mx-3">Book</li>

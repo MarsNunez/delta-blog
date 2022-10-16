@@ -4,15 +4,13 @@ import Card from "../components/Card";
 import PostsList from "../components/PostsList";
 import Link from "next/link";
 import { ChevronRightIcon } from "@heroicons/react/outline";
-import { getSession } from "next-auth/react";
 
 
-export default function Home({ quote, authorName, session }) {
-  console.log(session);
+export default function Home({ quote }) {
 
   return (
-    <Layout title={'Home'} session={session}>
-      <div className="text-4xl text-center my-5 quote_container center-box min-h-[150px]">
+    <Layout title={'Home'}  >
+      <div className="text-3xl md:text-4xl justify-center px-10 py-10 text-center my-5 quote_container center-box min-h-[200px]">
         <div className="container text-center">
           <p><TypeIt style={{"font-family": 'Titillium Web'}}
             options={{
@@ -24,7 +22,7 @@ export default function Home({ quote, authorName, session }) {
       </div>
       <Card size={'big'} />
       <PostsList />
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-3xl mx-auto pl-5 md:pl-0">
         <Link href={'/posts'}>
           <a>See all <ChevronRightIcon width={15} className='inline' /> </a>
         </Link>
@@ -44,14 +42,9 @@ export async function getServerSideProps (context) {
 
   const randomQuote = data[getRandomInt(data.length)]
 
-  // SESSION
-  const session = await getSession(context);
-
   return {
     props: {
       quote: randomQuote.q,
-      authorName: randomQuote.a,
-      session
     }
   }
 }

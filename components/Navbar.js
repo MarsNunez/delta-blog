@@ -2,34 +2,32 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-const Navbar = ({ current_location, session }) => {
+const Navbar = ({ current_location }) => {
 
   const router = useRouter();
 
   return (
     <>
-    <section className="border-b grid grid-cols-3 justify-between items-center border py-2 px-6">
-      <div className="element-left pl-28">
+    <section className="navbar-class grid grid-cols-3 justify-between items-center md:py-2 px-6 max-w-7xl mx-auto my-2">
+      <div className="element-left">
         <Image src="/img/icon-transparent.png" alt="icon" width="44" height="39"/>
       </div>
-      <div className="element-mid flex justify-center">
-        <Image src="/img/logo-transparent.png" alt="logo" width="192" height="27"/>
+      <div className="element-mid mx-auto flex justify-center">
+        <Link href='/'>
+          <a>
+            <Image src="/img/logo-transparent.png" alt="logo" width="200" height="28" />
+          </a>
+        </Link>
       </div>
       <div className="element-right">
-        { session ? (
-          <div className='flex px-3 py-1 rounded-md pl-40'>
-            <img onClick={() => {router.push('/api/auth/signout')}}  className='w-10 rounded-full cursor-pointer' src={session.user.image} alt="profile-picture" />
-            <p className='cursor-default my-auto ml-2'>{session.user.name}</p>
-          </div>
-        ) : (
-          <div className='pl-64'>
-            <Link href={'/login'}>
-              <a className='border text-white bg-neutral-900 p-2 px-4 rounded-md action_button '>Login</a>
-            </Link>
-          </div>
-        )}
+        <div className='flex justify-end'>
+            <i onClick={() => router.push('https://github.com/NASebastian')} className="lni lni-github-original mx-2 text-2xl cursor-pointer"></i>
+            <i onClick={() => router.push('https://twitter.com/Sebastian__Dev')} className="lni lni-twitter-original mx-2 text-2xl cursor-pointer"></i>
+            <i onClick={() => router.push('https://github.com/NASebastian')} className="lni lni-youtube mx-2 text-2xl cursor-pointer"></i>
+        </div>
       </div>
     </section>
+    <div className='border-b'></div>
     <section className='border-b'>
       <div className="links__container mx-auto w-fit margin-zero flex">
         <Link href={'/'}>

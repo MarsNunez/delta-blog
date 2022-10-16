@@ -4,7 +4,7 @@ const About = () => {
   return ( 
     <Layout title={'About'}>
       <section className="about">
-        <div className="faq max-w-3xl mx-auto">
+        <div className="faq max-w-3xl mx-auto px-10">
           <h2 className="text-5xl font-extrabold mt-16">Why?</h2>
           <p className="mt-8">This proyect was created to mapping my goals and express myself to the world.
             I just wanted to have a place to me and my thougts and I thought, "I suppose internet is a good place to do that" 🤔
@@ -21,12 +21,12 @@ const About = () => {
           </p>
         </div>
 
-        <div className="lore_box flex align-middle center-box mb-16 mt-20">
-          <div className="lore_box_image">
+        <div className="flex flex-col md:flex-row md:px-5 align-middle center-box mb-16 mt-12">
+          <div className="lore_box_image ">
             <img src="img/me.png" alt="me-image" className="rounded-md"/>
           </div>
 
-          <div className="lore_box_about text-left ml-16">
+          <div className="lore_box_about text-left px-5 mt-10">
             <h3 className="mb-4 text-lg font-extrabold uppercase">Sebastian Nunez <br /> June 12 - 2001</h3>
             <p><i class="text-xs font-extrabold lni lni-chevron-right"></i>Software Engineer 💻</p>
             <p><i class="text-xs font-extrabold lni lni-chevron-right"></i>Books & Manga Reader 📚</p>

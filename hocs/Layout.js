@@ -15,10 +15,13 @@ const Layout = ({children, title = '', footer=true, navbar=true, session }) => {
     <div>
       <Head>
         <title>Delta Blog { !title ? '' : `| ${title}`}</title>
+        {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&family=Titillium+Web:wght@400;600;800&display=swap" rel="stylesheet"></link>  */}
+        <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Titillium+Web:wght@400;600;800&display=swap" rel="stylesheet"></link>
-        <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Open+Sans:wght@400;600;800&family=Titillium+Web:wght@400;600&display=swap" rel="stylesheet"></link>
       </Head>
 
       { navbar && <Navbar current_location={current_location} session={session}/>}
